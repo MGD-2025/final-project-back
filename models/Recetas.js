@@ -2,13 +2,14 @@ const mongoose = require ('mongoose')
 
 RecetaSchema = new mongoose.Schema ({
     Nombre: String,
+    Tipo: {
+        enum: ['Entrantes', 'Principales', 'Ensaladas', 'Postres']
+    },
     Ingredientes: {
         tipo:[String]
     },
-    Receta: String, 
-    Menu: {
-        tipo: [String],
-        enum: ['Entrantes', 'Principales', 'Ensaladas', 'Postres']
+    Receta:{
+        preparacion: [String],
     },
     Alérgenos: {
         tipo: [String],

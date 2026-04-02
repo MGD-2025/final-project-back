@@ -26,6 +26,23 @@ const RecetaController = {
         console.log(error)
     }
   },
+async updateReceta (req, res) {
+  try {
+    const id = req.params._id;
+    const updateReceta = await Receta.findByIdAndUpdate(
+      id,
+      req.body,
+      { new: true });
+      
+    if (!updateReceta) {
+      return res.status(404).json({ message: 'Receta NO encontrada' });
+    }
+
+    res.json({message: 'Receta ACTUALIZADA correctamente', updateReceta});
+  } catch (error) {
+    console.log(error);
+  }
+},
   async delete (req, res) {
     try {
       const id = req.params._id

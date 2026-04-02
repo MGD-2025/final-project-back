@@ -6,6 +6,7 @@ const RecetaController = require('../controllers/RecetaController.js')
 router.post("/create", RecetaController.create)
 router.get('/', RecetaController.getAll )
 router.get('/name/nombre', RecetaController.getByName)
+router.put('/:_id', RecetaController.updateReceta )
 router.delete('/id/:_id', RecetaController.delete )
 
 module.exports = router
