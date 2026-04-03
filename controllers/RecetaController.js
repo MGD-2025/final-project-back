@@ -26,10 +26,19 @@ const RecetaController = {
         console.log(error)
     }
   },
-async updateReceta (req, res) {
-  try {
-    const id = req.params._id;
-    const updateReceta = await Receta.findByIdAndUpdate(
+  async getById (req, res) {
+    try {
+      const id = req.params.id;
+      const receta = await Receta.findById(id);
+      res.json(receta)
+    } catch (error) {
+        console.log(error)
+    }
+  },
+  async updateReceta (req, res) {
+    try {
+      const id = req.params._id;
+      const updateReceta = await Receta.findByIdAndUpdate(
       id,
       req.body,
       { new: true });
