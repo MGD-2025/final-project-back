@@ -5,21 +5,22 @@ RecetaSchema = new mongoose.Schema ({
         type: String,
         required: true
     },
-    Tipo: {
+    Orden: {
+        type: [String],
         enum: ['Entrantes', 'Principales', 'Ensaladas', 'Postres'],
         required: true
     },
     Ingredientes: {
-        tipo:[String],
+        type:[String],
         required: true
     },
     Receta:{
-        preparacion: [String],
+        type: [String],
         required: true
     },
-    Alérgenos: {
-        tipo: [String],
-        enum: ['Lácteos, Huevos, Gluten, Mariscos, Vegano'],
+    Alergenos: {
+        type: [String],
+        enum: ['Lácteos', 'Huevos', 'Gluten', 'Mariscos', 'Vegano'],
         required: false
     }
 })
